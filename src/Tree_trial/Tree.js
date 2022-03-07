@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Tree.css";
 
 import Highcharts, { dateFormat } from "highcharts";
 import HighchartsReact from "highcharts-react-official";
@@ -6,11 +7,9 @@ import HighchartsReact from "highcharts-react-official";
 function Tree() {
   const options = {
     title: {
-      text: "My chart",
+      text: null,
     },
-    subtitle: {
-      text: "Hello",
-    },
+
     xAxis: {
       type: "datetime",
       // labels: {
@@ -31,18 +30,27 @@ function Tree() {
         data: [4, 8, 6, 1, 9, 33, 15, 49, 78, 12],
       },
     ],
-    title: {
-      text: "Date",
+    credits: {
+      enabled: false,
     },
     yAxis: {
       title: {
-        text: "xyz",
+        text: "values",
       },
     },
   };
   return (
     <div>
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      <div className="main-container">
+        <div className="left-container">
+          <span>Check-ins</span>
+          <div className="btn-container">
+            <button className="graph-btn">Modify Plan</button>
+            <button className="graph-btn">Check-in</button>
+          </div>
+        </div>
+        <HighchartsReact highcharts={Highcharts} options={options} />
+      </div>
     </div>
   );
 }
